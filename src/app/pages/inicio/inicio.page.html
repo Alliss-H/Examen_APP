@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Validar Correo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Ingrese su correo"></ion-input>
+    </ion-item>
+    <ion-note *ngIf="emailControl.invalid && emailControl.touched" color="danger">
+      Ingrese un correo
+    </ion-note>
+    <ion-button type="submit" expand="block" [disabled]="emailForm.invalid">
+      <ion-icon name="send-outline" slot="start"></ion-icon>
+      Enviar correo
+    </ion-button>
+  </form>
+</ion-content>
